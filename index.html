@@ -1,3 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - Sistema de Inventario</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body style="background-image: url(/pexels-minan1398-872732.jpg); background-repeat: no-repeat; background-attachment: fixed; background-size: cover; background-position: center;" class="body-layout login-page-body">
+    <div style="background-color: rgba(0, 0, 0, 0.8); border: none; border-radius: 15px; display: flex;"  class="main-container login-container">
+        <header class="app-header">
+            <h1 style="color: white;" class="app-title">Sistema de Inventario</h1>
+            <p style="color: white;" class="app-subtitle">Gestión de Repuestos y Accesorios para tu Taller de Motos</p>
+        </header>
+        <section style="border: none; display: flex; flex-direction: column;" id="auth-section" class="card2 auth-card">
+            <h2 style="color: white;" class="card-title">Acceso al Sistema</h2>
+            <div class="role-selection-group">
+                <p style="color: white;" class="form-label">Selecciona tu Rol:</p>
+                <Br></Br>
+                <div class="radio-group">
+                    <input type="radio" id="role-admin" name="user-role" value="admin" checked>
+                    <label for="role-admin" style="color: white;">Administrador</label>
+                </div>
+                <div class="radio-group">
+                    <input type="radio" id="role-client" name="user-role" value="client">
+                    <label for="role-client" style="color: white;">Cliente</label>
+                </div>
+            </div>
+            <p style="color: white;" id="auth-status" class="auth-status-text"></p>
+    
+            <div style="margin-top: 5%;" class="auth-buttons-group">
+                <button id="google-login-button" class="btn btn-google">
+                    <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Logo de Google" class="google-logo">
+                    Iniciar Sesión con Google
+                </button>
+                <button  style="margin-top: 5%;" id="login-button" class="btn btn-primary">
+                    Iniciar Sesión Anónimamente
+                </button>
+            </div>
+            <p id="user-id-display" class="user-id-text mt-4"></p>
+
+        </section>
+    </div>
+    <div id="message-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3 id="modal-title" class="modal-title"></h3>
+            <p id="modal-message" class="modal-message"></p>
+            <div class="modal-actions">
+                <button id="modal-confirm-button" class="btn btn-danger hidden">Confirmar</button>
+                <button id="modal-close-button" class="btn btn-secondary">Cerrar</button>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="ScriptIndex.js"></script>
+</body>
+=======
 <!DOCTYPE html>
 <html lang="es">
 <head>
