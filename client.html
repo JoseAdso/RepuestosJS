@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cliente - Productos</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="body-layout">
+    <div class="main-container">
+        <div id="user-id-display-client"></div>
+        <button id="logout-button-client" class="btn">Cerrar Sesión</button>
+
+        <h3 class="mt-4">Productos Disponibles</h3>
+
+        <div class="form-group">
+            <label>Buscar Producto:</label>
+            <input id="search-input-client" type="text" placeholder="Buscar por nombre, código o descripción..." class="form-input">
+        </div>
+
+        <div class="table-wrapper">
+            <table class="product-table">
+                <thead>
+                    <tr class="table-header-row">
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Precio</th>
+                        <th>Stock</th>
+                        <th>Puntuación</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="client-product-list">
+                    <tr><td colspan="6" class="table-empty-message">Cargando productos...</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <button id="cart-button" class="btn btn-primary hidden mt-4">🛒 Ver Carrito</button>
+    </div>
+
+    <div id="cart-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <span id="cart-close-button" class="close-button">&times;</span>
+            <h2>Tu Carrito de Compras</h2>
+            <div id="cart-items" class="cart-items">
+            </div>
+            <button id="cart-buy-button" class="btn btn-success hidden">Comprar Todo</button>
+        </div>
+    </div>
+
+    <div id="message-modal-client" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3 id="modal-title-client" class="modal-title"></h3>
+            <p id="modal-message-client" class="modal-message"></p>
+            <div class="modal-actions">
+                <button id="modal-close-button-client" class="btn btn-primary">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="ScriptClient.js" defer></script>
+</body>
+</html>
