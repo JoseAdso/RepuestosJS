@@ -1,0 +1,569 @@
+:root {
+    --primary-color: #3116ad; /* Verde más suave */
+    --primary-color-dark: #3614dd; /* Verde oscuro más suave */
+    --secondary-color: #78909C; /* Gris azulado más claro */
+    --secondary-color-dark: #546E7A; /* Gris azulado oscuro más claro */
+    --accent-color: #2b78ac; /* Amarillo menos saturado */
+    --danger-color: #EF5350; /* Rojo ligeramente menos saturado */
+    --danger-color-dark: #E53935; /* Rojo oscuro ligeramente menos saturado */
+    --text-color-dark: #424242; /* Gris más oscuro para el texto principal */
+    --text-color-light: #fff;
+    --background-light: #ECEFF1; /* Gris muy claro para el fondo general */
+    --background-dark: #37474F; /* Gris oscuro para el fondo del login */
+    --card-background: #FAFAFA; /* Gris muy claro para tarjetas */
+    --border-color: #BDBDBD; /* Borde gris más claro */
+    --font-family: 'Inter', sans-serif;
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 12px;
+    --spacing-lg: 20px;
+    --spacing-xl: 28px;
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 15px;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    --shadow-md: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+/* Estilos Generales y Reseteo Básico */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--text-color-dark);
+    background-color: var(--background-light);
+    scroll-behavior: smooth;
+}
+
+/* Estilo para el layout general (Client.html) */
+.body-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-container { /* Usado en Client.html - AHORA CON MUCHO MENOS MARGEN LATERAL */
+    max-width: 100%; /* Permitirá que ocupe todo el ancho disponible */
+    width: 98%; /* Un 98% de ancho para un margen mínimo pero visible */
+    margin: var(--spacing-md) auto; /* Espacio vertical reducido y centrado horizontalmente */
+    padding: var(--spacing-md); /* Padding interno para que el contenido no se pegue a los bordes */
+    background-color: var(--card-background);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    flex-grow: 1;
+}
+
+h1, h2, h3 {
+    color: var(--primary-color-dark);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 700;
+}
+
+h1 { font-size: 2.2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.3rem; }
+
+.mt-4 {
+    margin-top: var(--spacing-xl);
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Estilos para Botones - Pequeños y Compactos */
+.btn {
+    padding: 0.6rem 1rem;
+    border: none;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    text-decoration: none;
+    box-shadow: var(--shadow-sm);
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+    filter: brightness(1.05);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-color-dark);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--text-color-light);
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-color-dark);
+}
+
+.btn-danger {
+    background-color: var(--danger-color);
+    color: var(--text-color-light);
+}
+
+.btn-danger:hover {
+    background-color: var(--danger-color-dark);
+}
+
+.btn-success {
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+}
+
+.btn-success:hover {
+    background-color: var(--primary-color-dark);
+}
+
+.btn-google {
+    background-color: #db4437;
+    color: var(--text-color-light);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-google:hover {
+    background-color: #c0392b;
+}
+
+.btn-google .google-logo {
+    width: 16px;
+    height: 16px;
+    margin-right: var(--spacing-xs);
+}
+
+/* Estilos para Formularios - Más compactos */
+.form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.form-label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    font-weight: 500;
+    color: var(--text-color-dark);
+}
+
+.form-input {
+    width: 100%;
+    padding: var(--spacing-sm);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    font-size: 0.95rem;
+    color: var(--text-color-dark);
+    background-color: var(--card-background);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(var(--primary-color), 0.3);
+}
+
+/* Estilos para Tablas - Más compactas */
+.table-wrapper {
+    overflow-x: auto;
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.product-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: var(--card-background);
+    box-shadow: var(--shadow-md);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+}
+
+.product-table th,
+.product-table td {
+    padding: var(--spacing-sm);
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.product-table th {
+    background-color: var(--primary-color);
+    font-weight: 600;
+    color: var(--text-color-light);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.product-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.product-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.product-table tbody tr:hover {
+    background-color: #eef4f9;
+    transition: background-color 0.2s ease;
+}
+
+/* Responsive para tablas */
+@media (max-width: 768px) {
+    .product-table thead {
+        display: none;
+    }
+
+    .product-table,
+    .product-table tbody,
+    .product-table tr,
+    .product-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .product-table tr {
+        margin-bottom: var(--spacing-md);
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius-md);
+        box-shadow: var(--shadow-sm);
+    }
+
+    .product-table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    .product-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: var(--spacing-sm);
+        width: calc(50% - var(--spacing-sm));
+        padding-right: var(--spacing-xs);
+        white-space: nowrap;
+        text-align: left;
+        font-weight: 600;
+        color: var(--primary-color-dark);
+    }
+}
+
+.table-empty-message {
+    text-align: center;
+    font-style: italic;
+    color: #666;
+    padding: var(--spacing-md) !important;
+    background-color: #fcfcfc;
+    border-radius: var(--border-radius-md);
+    margin-top: var(--spacing-md);
+}
+
+/* Estilos para Modales - Más compactos */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: var(--card-background);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-lg);
+    padding: var(--spacing-lg);
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    border: 2px solid var(--primary-color);
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.modal-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--primary-color-dark);
+    margin-bottom: var(--spacing-sm);
+}
+
+.modal-message {
+    font-size: 1rem;
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-md);
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.close-button {
+    position: absolute;
+    top: var(--spacing-sm);
+    right: var(--spacing-md);
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.close-button:hover {
+    color: #555;
+    transform: rotate(90deg);
+}
+
+/* Estrellas de puntuación (para client.html) - HORIZONTAL */
+.star-rating-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.1rem;
+}
+
+.rating-stars {
+    display: flex;
+    gap: 0.05rem;
+}
+
+.star {
+    font-size: 1.2rem;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.star.filled {
+    color: var(--accent-color);
+}
+
+.star-text {
+    font-size: 0.85rem;
+    color: #777;
+    margin-top: 0;
+    margin-left: var(--spacing-xs);
+}
+
+/* Carrito de compras (Client.html) */
+.cart-items {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: var(--spacing-md);
+    padding-right: var(--spacing-xs);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-sm);
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item-info {
+    text-align: left;
+    flex-grow: 1;
+}
+
+.cart-item-name {
+    font-weight: 600;
+    color: var(--text-color-dark);
+    font-size: 0.95rem;
+}
+
+.cart-item-quantity,
+.cart-item-price {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.cart-item-actions {
+    display: flex;
+    gap: var(--spacing-xs);
+}
+
+.cart-total {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-top: var(--spacing-md);
+    color: var(--primary-color-dark);
+    text-align: right;
+    padding-right: var(--spacing-sm);
+}
+
+.cart-empty-message {
+    font-style: italic;
+    color: #888;
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-md);
+    background-color: #f8f8f8;
+    border-radius: var(--border-radius-sm);
+}
+
+/* Clases de utilidad */
+.hidden {
+    display: none !important;
+}
+
+/* Estilos específicos para la página de Login (index.html) - Más compactos y rediseñados */
+.login-page-background {
+    background-image: url('/pexels-minan1398-872732.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    width: 100%;
+}
+
+.login-container {
+    background-color: rgba(0, 0, 0, 0.9);
+    border: none;
+    border-radius: var(--border-radius-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-lg);
+    max-width: 550px;
+    width: 90%;
+    box-shadow: var(--shadow-lg);
+    color: var(--text-color-light);
+    text-align: center;
+    animation: slideInUp 0.5s ease-out;
+}
+
+@keyframes slideInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.app-header {
+    margin-bottom: var(--spacing-md);
+    width: 100%;
+}
+
+.app-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-color-light);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.app-subtitle {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.auth-card {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: var(--spacing-md);
+}
+
+.card-title {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    margin-bottom: var(--spacing-md);
+    font-weight: 700;
+}
+
+.form-label {
+    color: #37474f;
+    text-align: left;
+    width: 100%;
+    font-weight: 600;
+}
+
+.radio-group {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+    justify-content: center;
+}
+
+.radio-group label {
+    color: var(--text-color-light);
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+.radio-group input[type="radio"] {
+    transform: scale(1.1);
+    margin-right: var(--spacing-xs);
+    accent-color: var(--primary-color);
+}
+
+.auth-status-text {
+    color: var(--accent-color);
+    font-weight: 600;
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    font-size: 1rem;
+}
+
+.auth-buttons-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    width: 100%;
+}
+
+.auth-buttons-group .btn {
+    width: auto;
+    align-self: center;
+}
+
+.user-id-text {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.85rem;
+    margin-top: var(--spacing-md);
+}

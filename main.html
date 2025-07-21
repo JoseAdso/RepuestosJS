@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Inventario - Taller de Motos</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="body-layout main-page-body">
+    <div class="main-container">
+        <header class="app-header main-header">
+            <h1 class="app-title-small">Inventario del Taller</h1>
+            <div class="user-info-and-logout">
+                <p id="user-id-display-main" class="user-id-text-main"></p>
+                <button id="logout-button-main" class="btn btn-secondary btn-small">Cerrar Sesión</button>
+            </div>
+        </header>
+
+        <section id="product-management-section" class="product-management-section">
+
+            <div class="card product-form-card">
+                <h2 class="card-title text-center">Gestión de Productos</h2>
+                <form id="product-form" class="product-form-grid">
+                    <div class="form-group">
+                        <label for="product-name" class="form-label">Nombre del Producto:</label>
+                        <input type="text" id="product-name" class="form-input" placeholder="Ej: Aceite Motul" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="product-description" class="form-label">Descripción:</label>
+                        <textarea id="product-description" class="form-input text-area" rows="3" placeholder="Ej: Aceite sintético para motores 4 tiempos"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="product-code" class="form-label">Código:</label>
+                        <input type="text" id="product-code" class="form-input" placeholder="Ej: ACMOTUL123" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="product-supplier" class="form-label">Proveedor:</label>
+                        <input type="text" id="product-supplier" class="form-input" placeholder="Ej: Motul Latam">
+                    </div>
+                    <div class="form-group">
+                        <label for="product-purchase-price" class="form-label">Precio de Compra:</label>
+                        <input type="number" id="product-purchase-price" class="form-input" step="0.01" min="0" placeholder="Ej: 25.00" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="product-sale-price" class="form-label">Precio de Venta:</label>
+                        <input type="number" id="product-sale-price" class="form-input" step="0.01" min="0" placeholder="Ej: 35.00" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="product-quantity" class="form-label">Cantidad en Stock:</label>
+                        <input type="number" id="product-quantity" class="form-input" min="0" placeholder="Ej: 10" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="product-location" class="form-label">Ubicación en Almacén:</label>
+                        <input type="text" id="product-location" class="form-input" placeholder="Ej: Estante A2">
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" id="save-product-button" class="btn btn-success">Añadir Producto</button>
+                        <button type="button" id="cancel-edit-button" class="btn btn-secondary hidden">Cancelar Edición</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="card product-list-card">
+                <h2 class="card-title text-center">Inventario Actual</h2>
+                <div class="search-container">
+                    <label for="search-input" class="form-label">Buscar Producto:</label>
+                    <input type="text" id="search-input" class="form-input" placeholder="Buscar por nombre, código o descripción...">
+                </div>
+                <div class="table-wrapper">
+                    <table class="product-table">
+                        <thead>
+                            <tr class="table-header-row">
+                                <th>Nombre</th>
+                                <th>Código</th>
+                                <th>Stock</th>
+                                <th>Precio Venta</th>
+                                <th>Ubicación</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="product-list" class="table-body">
+                            <tr>
+                                <td colspan="6" class="table-empty-message">Cargando productos...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+
+        <div id="message-modal-main" class="modal-overlay hidden">
+            <div class="modal-content">
+                <h3 id="modal-title-main" class="modal-title"></h3>
+                <p id="modal-message-main" class="modal-message"></p>
+                <div class="modal-actions">
+                    <button id="modal-confirm-button-main" class="btn btn-danger hidden">Confirmar</button>
+                    <button id="modal-close-button-main" class="btn btn-secondary">Cerrar</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script type="module" src="ScriptLogin.js"></script>
+</body>
+</html>
